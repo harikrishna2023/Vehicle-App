@@ -1,0 +1,9 @@
+To run angular 
+********************
+npm install
+
+ng serve 
+
+To run migartion 
+*********************
+Update-Database

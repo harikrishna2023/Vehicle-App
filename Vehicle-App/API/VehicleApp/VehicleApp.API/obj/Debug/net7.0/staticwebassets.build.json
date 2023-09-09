@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "pG5ZRphAkhxOiIwvmy+9jQZdUxYbJEyX8Va0TZY3/Uw=",
+  "Source": "VehicleApp.API",
+  "BasePath": "_content/VehicleApp.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
