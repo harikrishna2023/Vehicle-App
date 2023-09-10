@@ -1,0 +1,6 @@
+.error-messages {
+    color: red;
+    font-size: 20px; }
+    .button-container{
+        display: flex;
+    }

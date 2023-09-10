@@ -1,0 +1,65 @@
+<div class="container app">
+    <div class="col-md-12">
+        <h1 class=" mb-4">Category List</h1>
+    </div>
+    <form [formGroup]="CategoryForm">
+        <div class="error-messages" *ngIf="errorMessage">{{ errorMessage }}</div>
+        <div>
+            <hr *ngIf="errorMessage" />
+           
+           
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Min Weight</th>
+                        <th scope="col">Max Weight</th>
+                        <th scope="col">Icon</th>
+                        <th scope="col"></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>
+                            <input type="hidden" formControlName="category_id"  >
+                            <input type="hidden" formControlName="temp_id"  >
+                            <input type="text" formControlName="name" class="form-control form-control-sm" />
+                        </th>
+                        <th>
+                            <input type="text" (keypress)="numberOnly($event)"  formControlName="minValue" class="form-control form-control-sm" />
+                        </th>
+                        <th>
+                            <input type="text" (keypress)="numberOnly($event)"  formControlName="maxValue" class="form-control form-control-sm" />
+                        </th>
+                        <th>
+                            <input #file type="file" (change)="upload(file.files)" accept="image/png, image/ico, image/jpeg"  formControlName="icon"  />  
+                            </th>
+                            <th> <a (click)="AddNew()"><img style="width: 30px;" src="../../../assets/images/add.png" /> </a></th>
+                    </tr>
+                </thead>
+               
+                <tbody >
+                    
+                    <tr *ngFor="let item of categories let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>
+                            <ngb-highlight [result]="item.name">{{item.name}}</ngb-highlight>
+                        </td>
+                        <td> <ngb-highlight [result]="item.min_value">{{item.min_value}}</ngb-highlight></td>
+                        <td><ngb-highlight [result]="item.max_value">{{item.max_value}}</ngb-highlight></td>
+                        <td><img [attr.src]="item.icon" style="width: 25px;height: 25px;" src={{item.icon}} /> </td>
+                        <td>
+                            <a href="#"><img style="width: 30px;"  (click)="DeleteData(item)" src="../../../assets/images/delete.svg" /> </a>
+
+                            <a href="#"><img style="width: 30px;" (click)="editData(item)" src="../../../assets/images/edit.svg" /> </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <button type="submit" (click)="saveData()" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+</div>

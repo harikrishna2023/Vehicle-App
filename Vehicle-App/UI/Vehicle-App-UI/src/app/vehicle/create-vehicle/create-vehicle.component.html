@@ -1,0 +1,67 @@
+<form [formGroup]="VehicleForm" (ngSubmit)="AddVehicle()">
+
+    <div class="container ">
+        <div class="row d-flex justify-content-center align-items-center ">
+            <div class="col-md-9">
+
+                <h2 class="mb-4">Add Vehicle</h2>
+
+                <hr>
+
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body">
+                        <div class="error-messages" *ngIf="errorMessage" >{{ errorMessage }}</div>
+                        <div>
+                        <div class="row align-items-center pt-4 pb-2">
+                            <h6 class="mb-2">Owner name</h6>
+                            <input type="text" formControlName="name" class="form-control form-control-lg" />
+
+                        </div>
+                        <br>
+
+                        <div class="row align-items-center py-3">
+                            <h6 class="mb-2">Manufacturer</h6>
+
+                            <select class="select-picker form-control form-control-lg"
+      formControlName="manufacturer_name" 
+      >
+    <option  
+     *ngFor="let item of manufacturers" [ngValue]="item.id" >{{item.manufacturer_name}}</option>
+    </select>
+                        </div>
+                        <br>
+                        <div class="row align-items-center py-3">
+                            <h6 class="mb-2">Year</h6>
+
+                            <input type="text"  (keypress)="numberOnly($event)" formControlName="year" class="form-control form-control-lg" />
+                            <br>
+                        </div>
+
+
+                        <div class="row align-items-center py-3">
+
+                            <h6 class="mb-2">Weight</h6>
+
+                            <input type="text" appTwoDigitDecimaNumber formControlName="weight"
+                                class="form-control form-control-lg" />
+                        </div>
+
+                        <hr>
+                       
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" [disabled]="!VehicleForm.valid"
+                                class="btn btn-success">Submit</button>
+
+                                <button (click)="goToList()"  class="btn btn-danger mx-1">Cancel</button>
+                            </div>                            
+                        </div>
+
+                    </div> 
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</form>

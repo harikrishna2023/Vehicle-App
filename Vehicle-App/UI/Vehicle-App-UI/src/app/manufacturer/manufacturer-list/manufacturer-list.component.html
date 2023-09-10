@@ -1,0 +1,28 @@
+
+<div class="container app">
+    <div class="col-md-12">
+      <h2 class=" mb-4">Manufacturer List</h2>
+    </div>
+    <form>
+      <hr>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Manufacturer Name</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of manufacturers$ let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>
+              <ngb-highlight [result]="item.manufacturer_name">{{item.manufacturer_name}}</ngb-highlight>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+  
+    </form>
+  </div>

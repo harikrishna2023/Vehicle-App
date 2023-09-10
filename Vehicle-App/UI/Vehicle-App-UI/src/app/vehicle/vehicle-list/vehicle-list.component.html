@@ -1,0 +1,43 @@
+<div class="container ">
+    <div class="col-md-12">
+        <h1 class=" mb-4">Vehicle List</h1>
+    </div>
+<form>  
+  <div class="error-messages" *ngIf="errorMessage" >{{ errorMessage }}</div>
+                        <div>
+                         
+  <div>
+    <button type="button" class="btn btn-primary pull-right" (click)="btnClick();">Add Vehicle</button>  
+  </div>
+  <hr>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Owner</th>
+          <th scope="col" >Manufacturer</th>
+          <th scope="col">year</th>
+           <th scope="col">Weight</th>
+           
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of vehicles$ let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>
+              <ngb-highlight [result]="item.owner_name" >{{item.owner_name}}</ngb-highlight>
+          </td>
+          <td> <ngb-highlight [result]="item.manufacturer_name">{{item.manufacturer_name}}</ngb-highlight></td>
+          <td><ngb-highlight [result]="item.year">{{item.year}}</ngb-highlight></td>
+          <td> <img [attr.src]="item.icon" style="width: 25px;height: 25px;" src="{{item.icon}}" /></td>
+          <td>
+           
+            </td> 
+        </tr>
+        </tbody>
+      </table>
+    </div>  
+    </form>
+    
+
+</div>

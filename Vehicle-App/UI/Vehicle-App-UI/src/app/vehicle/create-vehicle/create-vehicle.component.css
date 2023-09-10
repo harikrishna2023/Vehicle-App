@@ -1,0 +1,13 @@
+.error-messages {
+    color: red;
+    font-size: 20px; }
+    .select-picker {
+        /* width: 120px; */
+        height: 30px;
+        border: 1px solid #faf9f9;
+        font-size: 18px;
+        color: #3a3c3c;
+        background-color: #f4efef;
+        border-radius: 5px;
+        
+      }
